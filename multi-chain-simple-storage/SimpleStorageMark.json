@@ -1,0 +1,163 @@
+{
+    "chain": 7001,
+    "contracts": [
+    {
+    "name": "ProxyBridge",
+    "address": "0xdc0CEFCA29dD23c529628d5BB62cC92f72C89336",
+    "ipfs": "QmchGTwvYzdB1VrD3zZ392frQPJhbQHmvNfYpkQPfmHTcP",
+        "abi": [
+        {
+        "anonymous": false,
+        "inputs": [
+        {
+        "indexed": true,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+        },
+        {
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+        },
+        {
+        "indexed": false,
+        "internalType": "bytes",
+        "name": "result",
+        "type": "bytes"
+        }
+        ],
+        "name": "EmitResult",
+        "type": "event"
+        },
+        {
+        "inputs": [],
+        "name": "AbstractAccountsAddress",
+        "outputs": [
+        {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+        }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+        },
+        {
+        "inputs": [],
+        "name": "IcaAddress",
+        "outputs": [
+        {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+        }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+        },
+        {
+        "inputs": [],
+        "name": "balance",
+        "outputs": [
+        {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+        }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+        },
+        {
+        "inputs": [
+        {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+        },
+        {
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+        },
+        {
+        "internalType": "uint256",
+        "name": "gasLimit",
+        "type": "uint256"
+        },
+        {
+        "internalType": "bytes",
+        "name": "calld",
+        "type": "bytes"
+        },
+        {
+        "internalType": "string",
+        "name": "connectionId",
+        "type": "string"
+        },
+        {
+        "internalType": "uint256",
+        "name": "chainId",
+        "type": "uint256"
+        },
+        {
+        "internalType": "bytes",
+        "name": "signature",
+        "type": "bytes"
+        }
+        ],
+        "name": "replay",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+        },
+        {
+        "inputs": [
+        {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+        },
+        {
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+        },
+        {
+        "internalType": "uint256",
+        "name": "gasLimit",
+        "type": "uint256"
+        },
+        {
+        "internalType": "bytes",
+        "name": "calld",
+        "type": "bytes"
+        },
+        {
+        "internalType": "uint256",
+        "name": "chainIdentifiers",
+        "type": "uint256"
+        },
+        {
+        "internalType": "bytes",
+        "name": "signature",
+        "type": "bytes"
+        }
+        ],
+        "name": "replayMulti",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+        },
+        {
+        "stateMutability": "payable",
+        "type": "receive"
+        }
+        ]
+    }
+    ],
+    "content": "# The nBridge - A Golden Gate Bridge Application\n\n## mythos_7001-1\n\n<initState:(do\n  (set-state \"connectionIdsMap\" {})\n  (set-state \"chainIdentifiers\" 7)\n  (set-state \"signatureFake\" \"0x0000000000000000000000000000000000000000\")\n)>\n\n<info:(let* (\n    netw (await (eth-provider-getNetwork))\n)\n  (react-div {} (list\n    ; (react-p {} (str \"chainId: \" (get netw \"chainId\")))\n    ; (react-p {} (str \"chain: mythos_7001-1\"))\n     (react-p {} (str\n    \"ProxyBridge: \" (get (get-state \"ProxyBridge\") \"address\")\n  ))\n))\n)>\n\n## Deploy Inter-Chain Contract\n\n<contractDetails:(react-div {} (list\n  (react-textarea {\n    \"key\" 1\n    \"placeholder\" \"contract bytecode 0x...\"\n    \"onChange\" (fn* (value) (set-state \"deploymentBytecode\" value))\n  } )\n   (react-textarea {\n    \"key\" 2\n    \"placeholder\" \"contract abi []\"\n    \"onChange\" (fn* (value) (set-state \"deploymentAbi\" (json-parse value)))\n  } )\n  (react-button {\n      \"title\" \"deploy\"\n      \"onClick\" (fn* () (set-state \"triggerDeploy\" true))\n   })\n))>\n\n<contractDeployment:(watch [\"triggerDeploy\"] (fn* () (if (get-state \"triggerDeploy\") (let* (\n    deploymentBytecode (get-state \"deploymentBytecode\")\n    connectionIds (vals (get-state \"connectionIdsMap\"))\n    chainIdentifiers (get-state \"chainIdentifiers\")\n    sds (log \"deploymentBytecode\" deploymentBytecode)\n    sds (log \"connectionIds\" connectionIds)\n    receipt (react-Contract-call \"ProxyBridge\" \"replayMulti\"\n       \"0x0000000000000000000000000000000000000000\"\n      0\n      20000000\n      deploymentBytecode\n      chainIdentifiers\n      \"0x0000000000000000000000000000000000000000\"\n   )\n  )\n    (set-state \"triggerDeploy\" false)\n))\n  ))>\n\n<bridge:(react-div {} (list\n   (react-Contract {\n      \"key\" 32\n      \"name\" \"ProxyBridge\"\n      \"function\" \"replayMulti\"\n      \"input\" \",,,,chainIdentifiers\"\n      ; \"output\" \"playReceipt\"\n      ; \"hidden\" \"output\"\n  })\n))>\n\n:br[]\n\n## Deployed Contract\n\n<testContract:(watch [\"TestContractAddress\"] (fn* () (react-div {} (list\n  (react-input {\"style\" {\"width\" 400} \"placeholder\" \"0x\", \"onChange\" (fn* (value)\n    (set-state \"TestContractAddress\" value)\n  )} )\n  ; (react-div {} (list\n     (react-Contract {\n        \"key\" 32\n        ;;\"name\" \"TestContract\"\n         \"abi\" (get-state \"deploymentAbi\")\n         \"address\" (get-state \"TestContractAddress\")\n        \"function\" \"get\"\n         \"showbtn\" true\n         \"output\" \"testcontractValue\"\n         \"hidden\" \"output\"\n    })\n  \n    (watch [\"testcontractValue\"] (fn* () (react-p {} (str\n      \"value: \" (get (get (get-state \"testcontractValue\") \"_value\") \"_hex\")\n      ; (bn-toString (get-state \"testcontractValue\"))\n    ))))\n\n  (react-Contract {\n        \"key\" 32\n        ;;\"name\" \"TestContract\"\n         \"abi\" (get-state \"deploymentAbi\")\n         \"address\" (get-state \"TestContractAddress\")\n        \"function\" \"set\"\n         \"showbtn\" true\n         \"output\" \"testcontractValue2\"\n         \"hidden\" \"output\"\n    })\n))\n  ))>\n\n:br[]\n",
+    "manual": null
+    }
