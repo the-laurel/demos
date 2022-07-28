@@ -24,26 +24,27 @@ Note: the Mythos, Logos, Ethos tokens do not have value outside of transaction g
 - Fill in this form with your Ethereum address, to receive tokens on the Mythos, Ethos, Logos chains: [form address]
 - Add Mythos, Logos, Ethos to your Metamask:
 
-Mythos Metamask settings:
-Name: `mythos.provable.dev`
-RPC URL: `https://mythos-evm.provable.dev`
-ChainID: `7001`
-Currency: `aMYT`
-Block explorer: `https://explorer-mythos.provable.dev/`
+#### Mythos Metamask settings:
+* Name: `mythos.provable.dev`
+* RPC URL: `https://mythos-evm.provable.dev`
+* ChainID: `7001`
+* Currency: `aMYT`
+* Block explorer: `https://explorer-mythos.provable.dev/`
 
-Logos Metamask settings:
-Name: `logos.provable.dev`
-RPC URL: `https://logos-evm.provable.dev`
-ChainID: `7002`
-Currency: `aLYT`
-Block explorer: `https://explorer-logos.provable.dev`
+#### Logos Metamask settings:
+* Name: `logos.provable.dev`
+* RPC URL: `https://logos-evm.provable.dev`
+* ChainID: `7002`
+* Currency: `aLYT`
+* Block explorer: `https://explorer-logos.provable.dev`
 
-Ethos Metamask settings:
-Name: `ethos.provable.dev`
-RPC URL: `https://ethos-evm.provable.dev`
-ChainID: `7003`
-Currency: `aRYT`
-Block explorer: `https://explorer-ethos.provable.dev`
+#### Ethos Metamask settings:
+* Name: `ethos.provable.dev`
+* RPC URL: `https://ethos-evm.provable.dev`
+* ChainID: `7003`
+* Currency: `aRYT`
+* Block explorer: `https://explorer-ethos.provable.dev`
+
 
 ### Setup
 
