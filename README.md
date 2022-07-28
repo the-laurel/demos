@@ -21,7 +21,7 @@ Note: the Mythos, Logos, Ethos tokens do not have value outside of transaction g
 ### Prerequsite
 
 - Install Metamask (or another EVM wallet) in your browser (ideally Chrome): https://metamask.io/
-- Fill in this form with your Ethereum address, to receive tokens on the Mythos, Ethos, Logos chains: [form address]
+- Fill in this form with your Ethereum address, to receive tokens on the Mythos, Ethos, Logos chains: https://forms.gle/3sGGBEPzqLQM7Zp7A
 - Add Mythos, Logos, Ethos to your Metamask:
 
 #### Mythos Metamask settings:
@@ -53,6 +53,12 @@ After you have your tokens, go the HackAtomWorkshopSetup smart contract & dApp: 
 This transaction will:
 -> send you some inter-chain-powered ERC20 tokens
 -> create an interchain account for your Ethereum address. This is a Cosmos SDK message sent through our Quasar feature, that connects Cosmos to the EVM and back.
+
+### Multi-Chain Simple Storage
+
+Deploy a multi-chain SimpleStorage smart contract, modify the state on all chains in a single transaction.
+
+Smart contract, dApp code: https://github.com/the-laurel/demos/tree/main/multi-chain-simple-storage.
 
 ### Inter-Chain ERC20
 
