@@ -48,7 +48,7 @@ Note: the Mythos, Logos, Ethos tokens do not have value outside of transaction g
 
 ### Setup
 
-After you have your tokens, go the HackAtomWorkshopSetup smart contract & dApp: [marks factory] and click the Setup button. This will trigger an EVM transaction that you will need to sign with Metamask.
+After you have your tokens, go the HackAtomWorkshopSetup smart contract & dApp: [TODO marks factory] and click the Setup button. This will trigger an EVM transaction that you will need to sign with Metamask.
 
 This transaction will:
 -> send you some inter-chain-powered ERC20 tokens
@@ -63,13 +63,11 @@ Smart contract, dApp code: https://github.com/the-laurel/demos/tree/main/multi-c
 ### Inter-Chain ERC20
 
 Inter-Chain ERC20 (ICERC20) smart contract is at address [Ethereum address]. See contract code & ABI at https://github.com/the-laurel/demos/tree/main/IcERC20.
-The dApp to interact with it is at [marks factory]
+The dApp to interact with it is at [TODO marks factory]
 
 You can:
 -> move your ICERC20 tokens from Mythos to your account (same Ethereum address) on another chain (Logos, Ethos)
 -> transfer your ICERC20 tokens from Mythos to another account, on another chain (Logos, Ethos)
-
-ICERC20 standard ABI: https://github.com/loredanacirstea/ideas/blob/main/CT/inter-chain/ERC20.md (TODO move in a public repo, e.g. https://github.com/pipeos-one/goldengate/tree/master/research/cosmos)
 
 #### Learn more:
 - The EVM Inter-Chain playlist: https://www.youtube.com/playlist?list=PL323JufuD9JCrElzoheW-oJMujGjHtp-k
