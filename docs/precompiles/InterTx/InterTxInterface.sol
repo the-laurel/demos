@@ -19,7 +19,7 @@ interface InterTxPrecompile {
     /// @param gasLimit The maximum of gas that can be used
     /// @param data The calldata or transaction input
     /// @param connectionId The ID of the IBC connection
-    /// @param chainID The ID of the targeted chain
+    /// @param chainId The ID of the targeted chain
     /// @param signature is 65 bytes in length and is further composed 1B + 32B + 32B (v, s, r).
     /// @return response The response bytes
     /// @return error The error bytes
@@ -45,7 +45,7 @@ interface InterTxPrecompile {
     /// @param gasLimit The maximum of gas that can be used
     /// @param data The calldata or transaction input
     /// @param connectionId The ID of the IBC connection
-    /// @param chainID The ID of the targeted chain
+    /// @param chainId The ID of the targeted chain
     /// @param signature is 65 bytes in length and is further composed 1B + 32B + 32B (v, s, r).
     /// @return response The response bytes
     /// @return error The error bytes
@@ -87,4 +87,10 @@ interface InterTxPrecompile {
         bytes memory response, 
         bytes memory error
     );
+
+    /// @notice Creation of new interchain account
+    /// @param owner Owner of the inter-chain account
+    /// @param connectionId Connection id for the IBC channel
+    /// @param signature For 3rd party registration of accounts, users must provide signature
+    function registerInterChainAccount(address owner, string memory connectionId, bytes memory signature) view external returns(string memory icaAddress);
 }
