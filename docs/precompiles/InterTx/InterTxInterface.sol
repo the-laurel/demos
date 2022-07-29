@@ -92,5 +92,10 @@ interface InterTxPrecompile {
     /// @param owner Owner of the inter-chain account
     /// @param connectionId Connection id for the IBC channel
     /// @param signature For 3rd party registration of accounts, users must provide signature
-    function registerInterChainAccount(address owner, string memory connectionId, bytes memory signature) view external returns(string memory icaAddress);
+    function registerInterChainAccount(address owner, string memory connectionId, bytes memory signature) external;
+
+    /// @notice Retrieval of interchain account address
+    /// @param owner Owner of the inter-chain account
+    /// @param connectionId Connection id for the IBC channel
+    function getInterChainAccountAddress(address owner, string memory connectionId) view external returns(string memory icaAddress);
 }
