@@ -6,7 +6,7 @@ pragma solidity >=0.7.0 <0.9.0;
 /// @author The Laurel Project
 /// @notice It helps at developing and debugging in a consensus env
 /// @dev Technical demos are at https://www.youtube.com/c/LoredanaCirstea/videos
-/// @custom:license This is covered by The Moral Licence - that is more strict than GPL-3.0
+/// custom:license This is covered by The Moral Licence - that is more strict than GPL-3.0
 interface EvmInterpreterPrecompile {
 
     /// @notice Analyzes a fragment of bytecode

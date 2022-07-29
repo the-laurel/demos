@@ -6,7 +6,7 @@ pragma solidity >=0.7.0 <0.9.0;
 /// @author The Laurel Project
 /// @notice It needs at least 2 (or even more for nBridge) chains and an IBC connection between them
 /// @dev Technical demos https://www.youtube.com/watch?v=ayFzY4btFX4&list=PL323JufuD9JBvmyqYtYLSe-xSSdJS9NPO
-/// @custom:license This is covered by The Moral Licence - that is more strict than GPL-3.0
+/// custom:license This is covered by The Moral Licence - that is more strict than GPL-3.0
 interface InterTxPrecompile {
 
     // emitTx will send the `data` to the chain that corresponds to the `connectionId`.
