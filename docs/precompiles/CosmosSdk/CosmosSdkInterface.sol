@@ -16,6 +16,7 @@ interface CosmosSdkPrecompile {
     /// @param msgType Type of message
     /// @param msg Content of message
     /// @param signature is 65 bytes in length and is further composed 1B + 32B + 32B (v, s, r).
+    /// @return success Execution was a success?
     /// @return data Content of result
     function sendMsg(
         string memory msgType,
