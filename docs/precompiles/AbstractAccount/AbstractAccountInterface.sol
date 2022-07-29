@@ -6,7 +6,7 @@ pragma solidity >=0.7.0 <0.9.0;
 /// @author The Laurel Project
 /// @notice https://ethereum-magicians.org/t/implementing-account-abstraction-as-part-of-eth1-x/4020
 /// @dev Technical demos are at https://www.youtube.com/c/LoredanaCirstea/videos
-/// @custom:license This is covered by The Moral Licence - that is more strict than GPL-3.0
+/// custom:license This is covered by The Moral Licence - that is more strict than GPL-3.0
 interface AbstractAccountsPrecompile {
     
     /// @notice Sends a transaction as from an EOA
