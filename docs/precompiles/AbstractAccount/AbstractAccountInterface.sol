@@ -8,11 +8,10 @@ pragma solidity >=0.7.0 <0.9.0;
 /// @dev Technical demos are at https://www.youtube.com/c/LoredanaCirstea/videos
 /// @custom:license This is covered by The Moral Licence - that is more strict than GPL-3.0
 interface AbstractAccountsPrecompile {
-    // TODO connectionId
-
+    
     /// @notice Sends a transaction as from an EOA
     /// @param signature is 65 bytes in length and is further composed 1B + 32B + 32B (v, s, r).
-    /// @return error can be 0 length when response exists
+    /// @return response error can be 0 length when response exists
     function sendTx(
         address to,
         address from, // removed when signature works
@@ -21,7 +20,13 @@ interface AbstractAccountsPrecompile {
         bytes memory data,
         bytes memory signature
     ) external returns(bytes memory response, bytes memory error);
-    
+
+    /// @notice Retrieval of abstract account address by owner
+    function getAccountAddress(address owner) view external returns (address);
+
+    /// @notice Retrieval of abstract account by owner and IBC channel connectionId
+    function getAccount(address owner, string memory connectionId) view external returns (address accountAddress, uint256 nonce);
+
     /// @notice Creation of new abstract accounts
     function registerAccount() view external returns(address accountAddress);
 }
