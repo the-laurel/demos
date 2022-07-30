@@ -1,9 +1,9 @@
 # The EVM for the Inter-Chain
 
+Register for tokens: https://docs.google.com/forms/d/e/1FAIpQLSebODebNu4eSVBGIY3EowXqHQTTaLAFngMiWHihVeKeHWuWYQ/viewform
 
 For tech support you can ask a question on
 - Mythos Discord, #support channel: https://discord.gg/DQn3f4yu
-- Evmos [???]
 - ask Loredana directly at the hackathon, if you see her
 
 If you want to build your hackathon project on our chains, let us know: in case you need additional features or fixes for the chains or smart contracts, we might be able to solve it during the hackathon if you tell us early. 
