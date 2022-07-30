@@ -18,6 +18,8 @@ Note: the Mythos, Logos, Ethos tokens do not have value outside of transaction g
 
 ## Interactive Workshop
 
+Presentation: https://docs.google.com/presentation/d/1A6kFqRLrCv5n755kU6duAJz2UQdbJlpRqpIADvfJjfM/edit?usp=sharing
+
 ### Prerequsite
 
 - Install Metamask (or another EVM wallet) in your browser (ideally Chrome): https://metamask.io/
@@ -63,6 +65,8 @@ Smart contract, dApp code: https://github.com/the-laurel/demos/tree/main/multi-c
 ### Inter-Chain ERC20
 
 Inter-Chain ERC20 (ICERC20) smart contract is at address [Ethereum address]. See contract code & ABI at https://github.com/the-laurel/demos/tree/main/IcERC20.
+
+A deployed example on Mythos and Logos is at `0x67d71BcE3cdBa17E40883398dB5aec8c6b7e96a3`.
 The dApp to interact with it is at [TODO marks factory]
 
 You can:
