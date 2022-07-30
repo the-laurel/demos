@@ -45,7 +45,7 @@ contract PrecompileWrap {
     }
 
     /// @notice Retrieval of abstract account address by owner
-    function aa_getAccountAddress(address owner) view external returns (address) {
+    function aa_getAccountAddress(address owner) view external returns (address account) {
         bytes memory payload = abi.encodeWithSignature(
             "getAccountAddress(address)",
            owner
