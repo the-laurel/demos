@@ -47,17 +47,16 @@ Presentation: https://docs.google.com/presentation/d/1A6kFqRLrCv5n755kU6duAJz2UQ
 * Currency: `aRYT`
 * Block explorer: `https://explorer-ethos.provable.dev`
 
-### Binaries
-
-MacOS: https://drive.google.com/file/d/1USKotmn882BzVVhWDiirf3TZy9Oz_nQl/view?usp=sharing
 
 ### Setup
 
-After you have your tokens, go the HackAtomWorkshopSetup smart contract & dApp: [TODO marks factory] and click the Setup button. This will trigger an EVM transaction that you will need to sign with Metamask.
+MacOS: https://drive.google.com/file/d/1USKotmn882BzVVhWDiirf3TZy9Oz_nQl/view?usp=sharing
+Binaries are only needed for the Cosmos SDK part of: opening an interchain account, forwarding the abstract account across chains and sending tokens for each interchain account (on each chain). These messages are also exposed on the EVM side, in the precompiles (Quasar feature).
 
-This transaction will:
--> send you some inter-chain-powered ERC20 tokens
--> create an interchain account for your Ethereum address. This is a Cosmos SDK message sent through our Quasar feature, that connects Cosmos to the EVM and back.
+- register for tokens and support to do the setup
+- create an interchain account for your Ethereum address
+- send tokens on each chain to the interchain account
+- create and forward the abstract account to each chain
 
 ### Multi-Chain Simple Storage
 
