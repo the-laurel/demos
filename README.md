@@ -47,6 +47,9 @@ Presentation: https://docs.google.com/presentation/d/1A6kFqRLrCv5n755kU6duAJz2UQ
 * Currency: `aRYT`
 * Block explorer: `https://explorer-ethos.provable.dev`
 
+### Binaries
+
+MacOS: https://drive.google.com/file/d/1USKotmn882BzVVhWDiirf3TZy9Oz_nQl/view?usp=sharing
 
 ### Setup
 
