@@ -50,26 +50,68 @@ Presentation: https://docs.google.com/presentation/d/1A6kFqRLrCv5n755kU6duAJz2UQ
 
 ### Setup
 
-MacOS: https://drive.google.com/file/d/1USKotmn882BzVVhWDiirf3TZy9Oz_nQl/view?usp=sharing
-Binaries are only needed for the Cosmos SDK part of: opening an interchain account, forwarding the abstract account across chains and sending tokens for each interchain account (on each chain). These messages are also exposed on the EVM side, in the precompiles (Quasar feature).
+MacOS binaries: https://drive.google.com/file/d/1USKotmn882BzVVhWDiirf3TZy9Oz_nQl/view?usp=sharing
+Binaries are only needed for the Cosmos SDK part of: opening an interchain account, forwarding the abstract account across chains and sending tokens for each interchain account (on each chain). Some of these messages are also exposed on the EVM side, in the precompiles (Quasar feature). The intent is to expose all of them in the EVM.
 
 - register for tokens and support to do the setup
-- create an interchain account for your Ethereum address
-- send tokens on each chain to the interchain account
-- create and forward the abstract account to each chain
+- create interchain accounts for your Ethereum address (replace with the account that you have)
+
+```
+mythosd tx intertx register --from mythos1kjuzm2lsa8ndlc904gvnex9lur8tuputpzq928 --connection-id connection-0 --chain-id mythos_7001-1 --node https://mythos-rpc.provable.dev:443 --home ~/.mythosd --fees 30aMYT --gas=251206 -y
+```
+
+- it may take 1-2 min to create, check creation with:
+```
+mythosd q intertx account-interchain mythos1kjuzm2lsa8ndlc904gvnex9lur8tuputpzq928 connection-0 --chain-id mythos_7001-1 --node https://mythos-rpc.provable.dev:443
+```
+
+- send funds to your interchain account on Logos: (replace the inter-chain account address with yours)
+```
+logosd tx bank send logos1kjuzm2lsa8ndlc904gvnex9lur8tuputgvrq5e logos1eqtc4q6sxt9lglqz8nuvtn0e2cxmrpkkwgkj3dyf9x0vh5lq0nzse9mc7m 1000000000000000000aLYT --fees 20aLYT --chain-id logos_7002-1 --node https://logos-rpc.provable.dev:443 --home ~/.logosd --keyring-backend test -y
+
+# check balance
+logosd q bank balances logos1eqtc4q6sxt9lglqz8nuvtn0e2cxmrpkkwgkj3dyf9x0vh5lq0nzse9mc7m --chain-id logos_7002-1 --node https://logos-rpc.provable.dev:443 --home ~/.logosd
+``` 
+
+- repeat same process for Logos and Ethos
+
+```
+logosd tx intertx register --from logos1kjuzm2lsa8ndlc904gvnex9lur8tuputgvrq5e --connection-id connection-1 --chain-id logos_7002-1 --node https://logos-rpc.provable.dev:443 --home ~/.logosd --fees 30aLYT --gas=251206 -y
+
+ethosd tx bank send ethos1kjuzm2lsa8ndlc904gvnex9lur8tuput6gll4p ethos1zz38ahrqfkrrzffqc5eceywz57fspdlh35sqvavk6ufew0m0ectscwmz3u 1000000000000000000aRYT --fees 20aRYT --chain-id ethos_7003-1 --node https://ethos-rpc.provable.dev:443 --home ~/.ethosd --keyring-backend test -y
+```
+
+- create and forward the abstract account to each chain - from Mythos -> Logos, from Logos -> Ethos
+```
+mythosd tx intertx account-abstract-forward mythos1kjuzm2lsa8ndlc904gvnex9lur8tuputpzq928 connection-0 --from newacc --chain-id mythos_7001-1 --home ~/.mythosd --node https://mythos-rpc.provable.dev:443 --keyring-backend test --fees 300aMYT -y
+
+logosd tx intertx account-abstract-forward logos1kjuzm2lsa8ndlc904gvnex9lur8tuputgvrq5e connection-1 --from logos1kjuzm2lsa8ndlc904gvnex9lur8tuputgvrq5e --chain-id logos_7002-1 --home ~/.logosd --node https://logos-rpc.provable.dev:443 --keyring-backend test --fees 300aLYT -y
+
+mythosd q intertx account-abstract mythos1kjuzm2lsa8ndlc904gvnex9lur8tuputpzq928 "connection-0" --home ~/.mythosd --node https://mythos-rpc.provable.dev:443
+```
+
+### Use nBridge dApp 
+
+To do a multi-chain deploy or a multi-chain transaction.
+
+https://mark.provable.dev/?ipfs=QmPDfrDDaH8yoNcagz8pwMPsT2tFze7YvjCih9MDWn5XVq&m=e
 
 ### Multi-Chain Simple Storage
 
 Deploy a multi-chain SimpleStorage smart contract, modify the state on all chains in a single transaction.
 
-Smart contract, dApp code: https://github.com/the-laurel/demos/tree/main/multi-chain-simple-storage.
+Smart contract: https://github.com/the-laurel/demos/tree/main/multi-chain-simple-storage.
+
+Use nBridge dApp.
+
+Make sure the abstract account has the same nonce on all chains. E.g. if you sent a multi-chain transaction on Mythos and Logos, you must send it on Ethos too, if you want to later be able to replay a second transaction on all three. Otherwise, the second transaction will fail on Ethos.
 
 ### Inter-Chain ERC20
 
 Inter-Chain ERC20 (ICERC20) smart contract is at address [Ethereum address]. See contract code & ABI at https://github.com/the-laurel/demos/tree/main/IcERC20.
 
 A deployed example on Mythos and Logos is at `0x67d71BcE3cdBa17E40883398dB5aec8c6b7e96a3`.
-The dApp to interact with it is at [TODO marks factory]
+Use nBridge dApp to encode the calldata and send a `replay` dependent transaction.
 
 You can:
 -> move your ICERC20 tokens from Mythos to your account (same Ethereum address) on another chain (Logos, Ethos)
