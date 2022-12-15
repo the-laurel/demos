@@ -13,11 +13,13 @@ Join Mythos Discord for support: https://discord.gg/dp4DaVz8
 
 Add Mythos to Metamask:
 
+```
 Name: mythos.provable.dev
 RPC URL: https://mythos-evm.provable.dev
 ChainID: 7001
 Currency: MYT
 Block explorer: https://explorer-mythos.provable.dev/
+```
 
 Cosmos explorer: https://explorer.provable.dev/
 
