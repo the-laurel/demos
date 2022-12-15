@@ -33,7 +33,7 @@ Or you can call it from another smart contract:
 * deploy the test contract [CosmosSdkProxyContract](./test/ProxyContract.sol)
 * a more complex example with nested calls is the [CallSelf contract](./test/RecursiveProxyContract.sol). This was used in this demo video: [Quasar is on Mythos. Execute Cosmos Transactions & Queries from the EVM. For any Ethermint chain.](https://youtu.be/COu5Olszhtg). Already deployed at [0x38f006F11fbD148B269c2098743396ba802B301c](https://explorer-mythos.provable.dev/address/0x38f006F11fbD148B269c2098743396ba802B301c).
 
-To easily encode your Cosmos messages (as shown in the above video), you can use: [https://mark.provable.dev/?ipfs=QmQHcms35m1mmc7PMQD3nzp47gAsXk9aMu59uw6bNo8MTM](https://mark.provable.dev/?ipfs=QmQHcms35m1mmc7PMQD3nzp47gAsXk9aMu59uw6bNo8MTM).
+To easily encode your Cosmos messages (as shown in the above video), you can use: [https://mark.provable.dev/?ipfs=QmX81PMCPn8KgUehzperdH7DRxW7fYd9H1HrDkgkwstcKW](https://mark.provable.dev/?ipfs=QmX81PMCPn8KgUehzperdH7DRxW7fYd9H1HrDkgkwstcKW).
 
 Note!: Right now you cannot directly use the `QuasarPrecompile` interface to initialize contract instances in Solidity and send calls, because Solidity does a check on whether bytecode exists at the precompile address (the precompile is a native contract, without bytecode, so this check fails). This is why you need to use a lower-level `call`. This will be mitigated in the near future.
 
