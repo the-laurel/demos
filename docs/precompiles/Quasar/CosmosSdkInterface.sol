@@ -7,23 +7,20 @@ pragma solidity >=0.7.0 <0.9.0;
 /// @notice It crosses execution engine bounds
 /// @dev Technical demos are about Quasar eg: https://www.youtube.com/watch?v=PlbAWUK54PU
 /// custom:license This is covered by The Moral Licence - that is more strict than GPL-3.0
-interface CosmosSdkPrecompile {
-    // msgType
-    // "/cosmos.bank.v1beta1.MsgSend"
-    // "/cosmos.gov.v1beta1.MsgVote"
+interface QuasarPrecompile {
 
     /// @notice Sends a message from EVM to Cosmos
-    /// @param msgType Type of message
-    /// @param msg Content of message
-    /// @param signature is 65 bytes in length and is further composed 1B + 32B + 32B (v, s, r).
+    /// @param msg Cosmos message (binary encoding with Protobuf - ProtoCodec)
     /// @return success Execution was a success?
+    /// @return data Content of result, encoded
+    function sendMsgRaw(
+        bytes memory msg
+    ) external returns(bool success, bytes memory data);
+
+    /// @notice Sends a query from EVM to Cosmos
+    /// @param msg Cosmos query message (binary encoding with Protobuf - ProtoCodec)
     /// @return data Content of result
-    function sendMsg(
-        string memory msgType,
-        bytes memory msg,
-        bytes memory signature
-    ) external returns(
-        bool success, 
-        bytes memory data
-    );
+    function sendQueryRaw(
+        bytes memory msg
+    ) external view returns(bytes memory data);
 }

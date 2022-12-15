@@ -6,7 +6,7 @@ For tech support you can ask a question on
 - Mythos Discord, #support channel: https://discord.gg/DQn3f4yu
 - ask Loredana directly at the hackathon, if you see her
 
-If you want to build your hackathon project on our chains, let us know: in case you need additional features or fixes for the chains or smart contracts, we might be able to solve it during the hackathon if you tell us early. 
+If you want to build your hackathon project on our chains, let us know: in case you need additional features or fixes for the chains or smart contracts, we might be able to solve it during the hackathon if you tell us early.
 
 Mythos, Ethos and Logos are Cosmos-EVM cutting-edge chains [based on Ethermint](https://github.com/evmos/ethermint) (and therefore Evmos-compatible) that host live, publicly verifiable prototypes of our work at The Laurel Project https://laurel.provable.dev.
 
@@ -71,7 +71,7 @@ logosd tx bank send logos1kjuzm2lsa8ndlc904gvnex9lur8tuputgvrq5e logos1eqtc4q6sx
 
 # check balance
 logosd q bank balances logos1eqtc4q6sxt9lglqz8nuvtn0e2cxmrpkkwgkj3dyf9x0vh5lq0nzse9mc7m --chain-id logos_7002-1 --node https://logos-rpc.provable.dev:443 --home ~/.logosd
-``` 
+```
 
 - repeat same process for Logos and Ethos
 
@@ -90,7 +90,7 @@ logosd tx intertx account-abstract-forward logos1kjuzm2lsa8ndlc904gvnex9lur8tupu
 mythosd q intertx account-abstract mythos1kjuzm2lsa8ndlc904gvnex9lur8tuputpzq928 "connection-0" --home ~/.mythosd --node https://mythos-rpc.provable.dev:443
 ```
 
-### Use nBridge dApp 
+### Use nBridge dApp
 
 To do a multi-chain deploy or a multi-chain transaction.
 
@@ -182,7 +182,7 @@ For ease of use, you can find all the precompile interfaces in `./docs/precompil
 - Address: `0x000000000000000000000000000000000000001a`
 - Interface: https://github.com/the-laurel/demos/tree/main/docs/precompiles/AbstractAccount
 
-### CosmosSdk Precompile
+### Quasar/Cosmos Sdk Precompile
 
 - Address: `0x000000000000000000000000000000000000001d`
 - Interface: https://github.com/the-laurel/demos/tree/main/docs/precompiles/CosmosSdk
