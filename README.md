@@ -4,9 +4,6 @@ Register for tokens: https://docs.google.com/forms/d/e/1FAIpQLSebODebNu4eSVBGIY3
 
 For tech support you can ask a question on
 - Mythos Discord, #support channel: https://discord.gg/DQn3f4yu
-- ask Loredana directly at the hackathon, if you see her
-
-If you want to build your hackathon project on our chains, let us know: in case you need additional features or fixes for the chains or smart contracts, we might be able to solve it during the hackathon if you tell us early.
 
 Mythos, Ethos and Logos are Cosmos-EVM cutting-edge chains [based on Ethermint](https://github.com/evmos/ethermint) (and therefore Evmos-compatible) that host live, publicly verifiable prototypes of our work at The Laurel Project https://laurel.provable.dev.
 
@@ -15,6 +12,12 @@ We showcase innovative features that Cosmos-EVM chains can have, some of which h
 All this effort is volunteer effort. To support these EVM inter-chain projects on Evmos, you can join as a volunteer or give 100% of your staking reward to our validator: https://evolve.provable.dev/.
 
 Note: the Mythos, Logos, Ethos tokens do not have value outside of transaction gas. Mythos, Logos, Ethos might be restarted from scratch at a later time, (1 month after the hackathon).
+
+## Quasar Demo
+
+See [./docs/precompiles/Quasar](./docs/precompiles/Quasar)
+
+*Note*: Information below might be outdated.
 
 ## Interactive Workshop
 
