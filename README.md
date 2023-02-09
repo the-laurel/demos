@@ -5,6 +5,12 @@ Register for tokens: https://docs.google.com/forms/d/e/1FAIpQLSebODebNu4eSVBGIY3
 For tech support you can ask a question on
 - Mythos Discord, #support channel: https://discord.gg/DQn3f4yu
 
+## UPDATE!
+
+_The information below is outdated. We no longer use Ethermint for our chains. We have implemented our own eWASM engine for Cosmos SDK chains. If you want to test it, you can join the Mythos Discord with the above link._
+
+## About
+
 Mythos, Ethos and Logos are Cosmos-EVM cutting-edge chains [based on Ethermint](https://github.com/evmos/ethermint) (and therefore Evmos-compatible) that host live, publicly verifiable prototypes of our work at The Laurel Project https://laurel.provable.dev.
 
 We showcase innovative features that Cosmos-EVM chains can have, some of which have been/will be proposed to Evmos. This is the future of Cosmos-EVM and you can help us build it.
